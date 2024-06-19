@@ -13,8 +13,6 @@
 
   <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 
-  {{ partial "seo.html" . }}
-
   <link type="text/css"
         rel="stylesheet"
         href="{{ `css/print.css` | relURL }}"
@@ -69,13 +67,11 @@
 
   <script src="{{ `js/jquery.min.js` | relURL }}"></script>
   <script src="{{ `js/soho.js` | relURL }}"></script>
+  {{ partial "full_cal.html" . }}
 
   {{ range $.Site.Params.customJs -}}
   <script src="{{ . | relURL }}"></script>
   {{- end}}
 
-    {{ if not hugo.IsServer }}
-      {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
 </body>
 </html>

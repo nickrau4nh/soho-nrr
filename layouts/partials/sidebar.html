@@ -31,7 +31,10 @@
         </li>
         {{ range .Site.Menus.main -}}
         <li>
-          <a href="{{ .URL }}">{{ .Name }}</a>
+          {{ with .Params.pre }}{{. | safeHTML}}{{end}}
+          <a href="{{.URL}}" {{ if eq .Params.external true }}target="_blank" rel="noopener noreferrer"{{ end }}>
+            {{ .Name }}
+          </a>
         </li>
         {{- end }}
       </ul>
@@ -44,5 +47,7 @@
       </a>
       {{ end }}
     </section>
+
+      {{ partial "paid_for_notice.html" . }}
   </div>
 </aside>

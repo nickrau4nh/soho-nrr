@@ -69,10 +69,6 @@
 
   <script src="{{ `js/jquery.min.js` | relURL }}"></script>
   <script src="{{ `js/soho.js` | relURL }}"></script>
-  {{ if .Params.calendar}}
-    {{ partial "full_cal.html" . }}
-  {{ end }}
-
   {{ range $.Site.Params.customJs -}}
   <script src="{{ . | relURL }}"></script>
   {{- end}}
